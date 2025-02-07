@@ -8,6 +8,7 @@ const resEmail = document.querySelector("#Register-email")
 const resPass = document.querySelector("#Register-pass")
 const name = document.querySelector("#Fullname")
 
+
 let UserProfilePicUrl = ""
 
 let myWidget = cloudinary.createUploadWidget({
@@ -17,15 +18,18 @@ let myWidget = cloudinary.createUploadWidget({
     if (!error && result && result.event === "success") {
         console.log('Done! Here is the image info: ', result.info);
         UserProfilePicUrl = result.info.secure_url
+        
     }
 }
 )
 
-document.getElementById("upload-widget").addEventListener("click", function (event) {
+document.getElementById("upload-widget").addEventListener("click", (event) => {
     myWidget.open();
     event.preventDefault()
-    event.stopPropagation()
 }, false);
+
+
+
 
 form.addEventListener("submit" , (event)=>{
     event.preventDefault();
@@ -38,13 +42,13 @@ form.addEventListener("submit" , (event)=>{
   .then(async (userCredential) => {
     const user = userCredential.user;
     console.log(user);
-    window.location = "login.html"
 
     try {
         const docRef = await addDoc(collection(db, "users"), {
-            fullName: fullName.value,
-            email: email.value,
-            profileImage: userProfilePicUrl,
+            fullName: name.value,
+            email: resEmail.value,
+            password: resPass.value,
+            profileImage: UserProfilePicUrl,
             uid: user.uid
         });
         console.log("Document written with ID: ", docRef.id);

@@ -7,10 +7,27 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-    <div class="d-flex justify-content-between align-items-center">
-        <h1>Home</h1>
-        <button id="Logout-btn">Logout</button>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Home</a>
+          <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button> -->
+          <div class="collapse navbar-collapse d-flex gap-5" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex gap-5" id="login-user">
+              <li class="nav-item d-flex gap-5">
+                <img width="35" id="user-profile-img" class="rounded-circle me-2" src="" >
+            </li>
+            <li class="nav-item d-flex gap-5">
+              <a class="nav-link" id="user-profile-name" href="#">John Doe</a>    
+            </li>
+            </ul>
+            <form class="d-flex">
+              <button class="btn btn-outline-success" id="Logout-btn">logout</button>
+            </form>
+          </div>
+        </div>
+      </nav>
 
    
     <script type="module" src="./scripts/app.js"></script>

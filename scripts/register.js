@@ -11,6 +11,12 @@ const name = document.querySelector("#Fullname")
 
 let UserProfilePicUrl = ""
 
+
+// document.getElementById("profileImg").addEventListener("click", (event) => {
+//     myWidget.open();
+//     event.preventDefault()
+// }, false);
+
 let myWidget = cloudinary.createUploadWidget({
     cloudName: 'dckohrwed',
     uploadPreset: 'my_upload'
@@ -22,13 +28,9 @@ let myWidget = cloudinary.createUploadWidget({
     }
 }
 )
+myWidget.open()
 
-document.getElementById("upload-widget").addEventListener("click", (event) => {
-    myWidget.open();
-    event.preventDefault()
-}, false);
-
-
+console.log(UserProfilePicUrl);
 
 
 form.addEventListener("submit" , (event)=>{
@@ -42,6 +44,7 @@ form.addEventListener("submit" , (event)=>{
   .then(async (userCredential) => {
     const user = userCredential.user;
     console.log(user);
+    window.location = "login.html"
 
     try {
         const docRef = await addDoc(collection(db, "users"), {
